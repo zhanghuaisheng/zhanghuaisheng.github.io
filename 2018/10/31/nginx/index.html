@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://zhanghuaisheng.github.io">
-  <title>第一篇博客 | zhs&#39;s blog</title>
+  <title>nginx | zhs&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="写在开始写博客之前这个github博客暂时用来记录技术文档、学习笔记">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="1 nginx简介nginx是一个功能强大的，轻量级的http服务器。能够加载静态页面，实现负载均衡，反向代理。对比apache httpd来说，安装简单，配置容易，加载迅速。在企业中通常并不会单一作为web服务器出现，通常以（linux+nginx+tomcat/weblogic+数据库）的形式出现，主要功能为反向代理和负载均衡。">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇博客">
-<meta property="og:url" content="https://zhanghuaisheng.github.io/2018/my-blog/index.html">
+<meta property="og:title" content="nginx">
+<meta property="og:url" content="https://zhanghuaisheng.github.io/2018/10/31/nginx/index.html">
 <meta property="og:site_name" content="zhs&#39;s blog">
-<meta property="og:description" content="写在开始写博客之前这个github博客暂时用来记录技术文档、学习笔记">
+<meta property="og:description" content="1 nginx简介nginx是一个功能强大的，轻量级的http服务器。能够加载静态页面，实现负载均衡，反向代理。对比apache httpd来说，安装简单，配置容易，加载迅速。在企业中通常并不会单一作为web服务器出现，通常以（linux+nginx+tomcat/weblogic+数据库）的形式出现，主要功能为反向代理和负载均衡。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-01T05:02:29.069Z">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/nginx模块.jpg">
+<meta property="og:updated_time" content="2018-11-01T07:20:06.413Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一篇博客">
-<meta name="twitter:description" content="写在开始写博客之前这个github博客暂时用来记录技术文档、学习笔记">
+<meta name="twitter:title" content="nginx">
+<meta name="twitter:description" content="1 nginx简介nginx是一个功能强大的，轻量级的http服务器。能够加载静态页面，实现负载均衡，反向代理。对比apache httpd来说，安装简单，配置容易，加载迅速。在企业中通常并不会单一作为web服务器出现，通常以（linux+nginx+tomcat/weblogic+数据库）的形式出现，主要功能为反向代理和负载均衡。">
+<meta name="twitter:image" content="https://zhanghuaisheng.github.io/assets/img/nginx模块.jpg">
   
     <link rel="alternative" href="/atom.xml" title="zhs&#39;s blog" type="application/atom+xml">
   
@@ -157,28 +159,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-my-blog" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-nginx" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      第一篇博客
+      nginx
     </h1>
   
 
         
-        <a href="/2018/my-blog/" class="archive-article-date">
-  	<time datetime="2018-10-29T10:36:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-29</time>
+        <a href="/2018/10/31/nginx/" class="archive-article-date">
+  	<time datetime="2018-10-31T07:19:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="写在开始写博客之前"><a href="#写在开始写博客之前" class="headerlink" title="写在开始写博客之前"></a>写在开始写博客之前</h3><p>这个github博客暂时用来记录技术文档、学习笔记</p>
-
+        <h2 id="1-nginx简介"><a href="#1-nginx简介" class="headerlink" title="1 nginx简介"></a>1 nginx简介</h2><p>nginx是一个功能强大的，轻量级的http服务器。能够加载静态页面，实现负载均衡，反向代理。对比apache httpd来说，安装简单，配置容易，加载迅速。<br>在企业中通常并不会单一作为web服务器出现，通常以（linux+nginx+tomcat/weblogic+数据库）的形式出现，主要功能为反向代理和负载均衡。<br><a id="more"></a></p>
+<h2 id="2-nginx功能"><a href="#2-nginx功能" class="headerlink" title="2 nginx功能"></a>2 nginx功能</h2><p>http服务：nginx能够接收静态页面，但是没办法处理动态页面，如果有动态页面时需要转发给其他http服务器处理<br>反向代理：将浏览器的请求转发给内部上游服务器，再将服务器返回的结果返回给浏览器。就是一个中间转发请求的作用，使得内部服务器不会直接暴露给用户，此时nginx在用户感觉上就是一个服务器<br>负载均衡：企业业务量增加时，为了应对大量的用户请求，单一的服务器不足以提供资源。所以用多台服务器提供服务，前端加一个负载均衡器用来转发用户的请求到后端各个服务器上，减少的单一服务器的压力。主流的有dns负载均衡、lvs（四层）、nginx（七层）</p>
+<h2 id="3-nginx模块"><a href="#3-nginx模块" class="headerlink" title="3 nginx模块"></a>3 nginx模块</h2><p>nginx模块：<br><img src="https://zhanghuaisheng.github.io/assets/img/nginx模块.jpg" alt="nginx模块" title="nginx_modules"></p>
+<h2 id="4-nginx安装"><a href="#4-nginx安装" class="headerlink" title="4 nginx安装"></a>4 nginx安装</h2><h2 id="5-nginx配置"><a href="#5-nginx配置" class="headerlink" title="5 nginx配置"></a>5 nginx配置</h2><h3 id="5-1-web服务器"><a href="#5-1-web服务器" class="headerlink" title="5.1 web服务器"></a>5.1 web服务器</h3><h3 id="5-2-反向代理"><a href="#5-2-反向代理" class="headerlink" title="5.2 反向代理"></a>5.2 反向代理</h3><h3 id="5-3-负载均衡"><a href="#5-3-负载均衡" class="headerlink" title="5.3 负载均衡"></a>5.3 负载均衡</h3><h3 id="5-4-keepalived-nginx实现高可用"><a href="#5-4-keepalived-nginx实现高可用" class="headerlink" title="5.4 keepalived+nginx实现高可用"></a>5.4 keepalived+nginx实现高可用</h3><p>keepalived+nginx +tomcat<br><strong>实验环境</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">主机名</th>
+<th style="text-align:center">ip</th>
+<th style="text-align:center">操作系统</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">node1</td>
+<td style="text-align:center">192.168.108.198</td>
+<td style="text-align:center">centos6</td>
+</tr>
+<tr>
+<td style="text-align:center">node2</td>
+<td style="text-align:center">192.168.108.199</td>
+<td style="text-align:center">centos7</td>
+</tr>
+</tbody>
+</table>
+<p>1、安装keepalived<br><code>yum install -y keepalived</code><br>2、 安装nginx<br><code>yum install -y nginx</code></p>
+<p>3、修改主页<br><code>vi /usr/share/nginx/html/index.html</code><br>    centos6:this node1 centos6<br>    centos7:this node2 centos7<br>4、简单配置<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/keepalived/keepalived.conf</span><br><span class="line"></span><br><span class="line">! Configuration File <span class="keyword">for</span> keepalived</span><br><span class="line"></span><br><span class="line">global_defs &#123;</span><br><span class="line"><span class="comment">#   notification_email &#123;</span></span><br><span class="line"><span class="comment">#        root@localhost</span></span><br><span class="line"><span class="comment">#       &#125;</span></span><br><span class="line"><span class="comment">#   notification_email_from Alexandre.Cassen@firewall.loc</span></span><br><span class="line"><span class="comment">#   smtp_server 127.0.0.1</span></span><br><span class="line"><span class="comment">#   smtp_connect_timeout 30</span></span><br><span class="line">   router_id LVS_DEVEL</span><br><span class="line">   vrrp_skip_check_adv_addr</span><br><span class="line"><span class="comment">#   vrrp_strict</span></span><br><span class="line">   vrrp_garp_interval 0</span><br><span class="line">   vrrp_gna_interval 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">vrrp_script chk_nginx &#123;</span><br><span class="line">    script <span class="string">"killall -0 nginx "</span></span><br><span class="line">    interval 1</span><br><span class="line">    weight -2</span><br><span class="line">&#125;</span><br><span class="line">vrrp_instance VI_1 &#123;</span><br><span class="line">    state MASTER</span><br><span class="line">    interface ens160</span><br><span class="line">    virtual_router_id 51</span><br><span class="line">    priority 100</span><br><span class="line">    advert_int 1</span><br><span class="line">    authentication &#123;</span><br><span class="line">        auth_type PASS</span><br><span class="line">        auth_pass lKak</span><br><span class="line">    &#125;</span><br><span class="line">    virtual_ipaddress &#123;</span><br><span class="line">        192.168.108.190/24</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">track_script &#123;</span><br><span class="line">        chk_nginx    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><pre><code>centos7中配置的ip不通信：由于配置文件中配置了vrrp_strict：严格按照vrrp协议，不允许单播模式。
+注释掉相关代码后成功
+</code></pre>
       
 
       
@@ -191,7 +221,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -203,7 +233,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        			<a href="/categories/web//" class="article-tag-list-link color4">web</a>
         		</li>
       		
 		</ul>
@@ -258,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://zhanghuaisheng.github.io/2018/my-blog/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zhanghuaisheng.github.io/2018/10/31/nginx/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -272,15 +302,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/centos6-9虚拟机模版制作/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          centos6.9虚拟机模版制作
-        
-      </div>
-    </a>
   
+    <a href="/2018/10/30/centos6-9虚拟机模版制作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">centos6.9虚拟机模版制作</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -297,6 +323,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-nginx简介"><span class="toc-number">1.</span> <span class="toc-text">1 nginx简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-nginx功能"><span class="toc-number">2.</span> <span class="toc-text">2 nginx功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-nginx模块"><span class="toc-number">3.</span> <span class="toc-text">3 nginx模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-nginx安装"><span class="toc-number">4.</span> <span class="toc-text">4 nginx安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-nginx配置"><span class="toc-number">5.</span> <span class="toc-text">5 nginx配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-web服务器"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 web服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-反向代理"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 反向代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-负载均衡"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 负载均衡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-keepalived-nginx实现高可用"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 keepalived+nginx实现高可用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结"><span class="toc-number">5.5.</span> <span class="toc-text">小结</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -329,7 +368,7 @@ if(true){
   	repo: 'zhanghuaisheng.github.io',
   	owner: 'zhanghuaisheng',
   	admin: ['zhanghuaisheng'],
-  	id: 'Mon Oct 29 2018 18:36:51 GMT+0800',
+  	id: 'Wed Oct 31 2018 15:19:36 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -431,15 +470,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vmware</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
