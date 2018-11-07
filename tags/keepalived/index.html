@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://zhanghuaisheng.github.io">
-  <title>centos6.9虚拟机模版制作 | zhs&#39;s blog</title>
+  <title>Tag: keepalived | zhs&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="生产环境中vmware虚拟化系统制作模版，为了方便大量linux机器的制作">
-<meta name="keywords" content="linux,vmware">
-<meta property="og:type" content="article">
-<meta property="og:title" content="centos6.9虚拟机模版制作">
-<meta property="og:url" content="https://zhanghuaisheng.github.io/2018/10/30/centos6-9虚拟机模版制作/index.html">
+  <meta name="description" content="这是花生的个人博客">
+<meta name="keywords" content="hexo,mysql,oracle,linux,python,随笔">
+<meta property="og:type" content="website">
+<meta property="og:title" content="zhs&#39;s blog">
+<meta property="og:url" content="https://zhanghuaisheng.github.io/tags/keepalived/index.html">
 <meta property="og:site_name" content="zhs&#39;s blog">
-<meta property="og:description" content="生产环境中vmware虚拟化系统制作模版，为了方便大量linux机器的制作">
+<meta property="og:description" content="这是花生的个人博客">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-31T02:24:18.450Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="centos6.9虚拟机模版制作">
-<meta name="twitter:description" content="生产环境中vmware虚拟化系统制作模版，为了方便大量linux机器的制作">
+<meta name="twitter:title" content="zhs&#39;s blog">
+<meta name="twitter:description" content="这是花生的个人博客">
   
     <link rel="alternative" href="/atom.xml" title="zhs&#39;s blog" type="application/atom+xml">
   
@@ -157,233 +156,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-centos6-9虚拟机模版制作" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      centos6.9虚拟机模版制作
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/11/05/keepalived学习/" class="archive-article-date">
+  	<time datetime="2018-11-05T05:26:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/11/05/keepalived学习/">keepalived学习</a>
     </h1>
   
 
-        
-        <a href="/2018/10/30/centos6-9虚拟机模版制作/" class="archive-article-date">
-  	<time datetime="2018-10-30T08:57:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>生产环境中vmware虚拟化系统制作模版，为了方便大量linux机器的制作<br><a id="more"></a></p>
-<h2 id="1-挂载本地ios镜像文件作为yum源"><a href="#1-挂载本地ios镜像文件作为yum源" class="headerlink" title="1 挂载本地ios镜像文件作为yum源"></a>1 挂载本地ios镜像文件作为yum源</h2><h3 id="1-1-连接虚拟机的ios数据文件"><a href="#1-1-连接虚拟机的ios数据文件" class="headerlink" title="1.1 连接虚拟机的ios数据文件"></a>1.1 连接虚拟机的ios数据文件</h3><h3 id="1-2-创建目录-mnt-cdrom"><a href="#1-2-创建目录-mnt-cdrom" class="headerlink" title="1.2 创建目录/mnt/cdrom"></a>1.2 创建目录/mnt/cdrom</h3><p><code>mkdir /mnt/cdrom</code></p>
-<h3 id="1-3-挂载光盘"><a href="#1-3-挂载光盘" class="headerlink" title="1.3 挂载光盘"></a>1.3 挂载光盘</h3><p><code>mount /dev/sr0 /mnt/cdrom</code></p>
-<h3 id="1-4-编辑yum文件"><a href="#1-4-编辑yum文件" class="headerlink" title="1.4 编辑yum文件"></a>1.4 编辑yum文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/yum.repo.d</span><br><span class="line">rm -rf *</span><br><span class="line">vi default.repo</span><br></pre></td></tr></table></figure>
-<p>添加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">local</span>]</span><br><span class="line">name=localyum</span><br><span class="line">baseurl=file:///mnt/cdrom/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-安装依赖包"><a href="#2-安装依赖包" class="headerlink" title="2 安装依赖包"></a>2 安装依赖包</h2><p><code>yum install -y zlib-devel gcc telnet lrzsz pam-devel</code></p>
-<h2 id="3-升级openssh7-6p1"><a href="#3-升级openssh7-6p1" class="headerlink" title="3 升级openssh7.6p1"></a>3 升级openssh7.6p1</h2><h3 id="3-1-上传安装包"><a href="#3-1-上传安装包" class="headerlink" title="3.1 上传安装包"></a>3.1 上传安装包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span></span><br><span class="line">rz 选中openssh-7.6p1.tar.gz  openssl-1.0.2n.tar.gz</span><br></pre></td></tr></table></figure>
-<h3 id="3-2-升级openssl"><a href="#3-2-升级openssl" class="headerlink" title="3.2 升级openssl"></a>3.2 升级openssl</h3><p>卸载旧版本的openssl：<br><code>rpm -e openssl-1.0.1e-57.el6.x86_64 --nodeps</code><br>解压：<br><code>tar -zxvf openssl-1.0.2n.tar.gz</code><br>进入目录：<br><code>cd openssl-1.0.2n</code><br>编译<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./config shared zlib --prefix=/usr/<span class="built_in">local</span>/openssl</span><br><span class="line">make</span><br><span class="line">make <span class="built_in">test</span></span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p>
-<p>修改配置库文件搜索路径<br><code>vi /etc/ld.so.conf</code><br>添加：<code>/usr/local/openssl/lib</code><br>刷新缓存: <code>ldconfig -v</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/openssl/lib</span><br><span class="line">cp libssl.so.1.0.0 /usr/lib64</span><br><span class="line">cp libcrypto.so.1.0.0 /usr/lib64/</span><br><span class="line">chmod 555 /usr/lib64/libssl.so.1.0.0</span><br><span class="line">chmod 555 /usr/lib64/libcrypto.so.1.0.0</span><br><span class="line">ln -s /usr/lib64/libcrypto.so.1.0.0 /usr/lib64/libcrypto.so.10</span><br><span class="line">ln -s /usr/lib64/libssl.so.1.0.0 /usr/lib64/libssl.so.10</span><br><span class="line">ln -s /usr/lib64/libcrypto.so.1.0.0 /usr/lib64/libcrypto.so</span><br><span class="line">ln -s /usr/lib64/libssl.so.1.0.0 /usr/lib64/libssl.so</span><br></pre></td></tr></table></figure></p>
-<p>修改环境变量<br><code>vi /etc/profile</code><br>添加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PATH=/usr/<span class="built_in">local</span>/openssl/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure></p>
-<p>生效 <code>source /etc/profile</code><br>查看openssl版本是否正确 <code>openssl version -a</code></p>
-<h3 id="3-3-升级openssh"><a href="#3-3-升级openssh" class="headerlink" title="3.3 升级openssh"></a>3.3 升级openssh</h3><p>停止ssh服务：<code>service sshd stop</code><br>卸载旧版本的openssh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa |grep openssh</span><br><span class="line">openssh-5.3p1-122.el6.x86_64</span><br><span class="line">openssh-clients-5.3p1-122.el6.x86_64</span><br><span class="line">openssh-server-5.3p1-122.el6.x86_64</span><br><span class="line">openssh-askpass-5.3p1-122.el6.x86_64</span><br><span class="line">卸载：</span><br><span class="line">rpm -e --nodeps openssh-askpass-5.3p1-122.el6.x86_64</span><br><span class="line">rpm -e --nodeps openssh-server-5.3p1-122.el6.x86_64</span><br><span class="line">rpm -e --nodeps openssh-clients-5.3p1-122.el6.x86_64</span><br><span class="line">rpm -e --nodeps openssh-5.3p1-122.el6.x86_64</span><br></pre></td></tr></table></figure></p>
-<p>备份配置文件：<code>mv /etc/ssh/ /etc/ssh.old/</code><br>解压 <code>tar zxvf openssh-7.6p1.tar.gz</code><br>进入目录 <code>cd openssh-7.6p1</code><br>编译<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr --sysconfdir=/etc/ssh --with-pam --with-ssl-dir=/usr/<span class="built_in">local</span>/openssl --with-md5-passwords --mandir=/usr/share/man</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p>
-<p>添加启动脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp ./contrib/redhat/sshd.init /etc/init.d/sshd</span><br><span class="line">chmod +x /etc/init.d/sshd</span><br><span class="line">chkconfig --add sshd</span><br></pre></td></tr></table></figure></p>
-<p>重启ssh<br><code>service sshd start</code><br>确认ssh openssl版本<br><code>ssh -V</code><br>显示OpenSSH_7.6p1, OpenSSL 1.0.2n  7 Dec 2017即完成升级</p>
-<p>编辑sshd配置文件：<br><code>vi /etc/ssh/sshd_config</code><br>添加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X11Forwarding yes</span><br><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure></p>
-<p>修改<code>#UsePAM no</code>为<code>UsePAM yes</code></p>
-<p>增加pam模块认证文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/pam.d/	</span><br><span class="line">vi sshd</span><br></pre></td></tr></table></figure></p>
-<p>添加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#%PAM-1.0</span></span><br><span class="line">auth            include         system-auth</span><br><span class="line">account         required        pam_nologin.so</span><br><span class="line">account         include         system-auth</span><br><span class="line">password        include         system-auth</span><br><span class="line">session         optional        pam_keyinit.so force revoke</span><br><span class="line">session         include         system-auth</span><br><span class="line">session         required        pam_loginuid.so</span><br></pre></td></tr></table></figure></p>
-<p>重启ssh<br><code>service sshd restart</code></p>
-<h2 id="4-关闭不使用的服务"><a href="#4-关闭不使用的服务" class="headerlink" title="4 关闭不使用的服务"></a>4 关闭不使用的服务</h2><h3 id="4-1-查看开启的服务列表"><a href="#4-1-查看开启的服务列表" class="headerlink" title="4.1 查看开启的服务列表"></a>4.1 查看开启的服务列表</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --list |grep on</span><br><span class="line">[root@moban pam.d]<span class="comment"># chkconfig --list |grep on</span></span><br><span class="line">abrt-ccpp       0:off   1:off   2:off   3:on    4:off   5:on    6:off</span><br><span class="line">abrtd           0:off   1:off   2:off   3:on    4:off   5:on    6:off</span><br><span class="line">acpid           0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">atd             0:off   1:off   2:off   3:on    4:on    5:on    6:off</span><br><span class="line">auditd          0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">autofs          0:off   1:off   2:off   3:on    4:on    5:on    6:off</span><br><span class="line">blk-availability        0:off   1:on    2:on    3:on    4:on    5:on    6:off</span><br><span class="line">bluetooth       0:off   1:off   2:off   3:on    4:on    5:on    6:off</span><br><span class="line">certmonger      0:off   1:off   2:off   3:on    4:on    5:on    6:off</span><br><span class="line">cpuspeed        0:off   1:on    2:on    3:on    4:on    5:on    6:off</span><br><span class="line">crond           0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">cups            0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">haldaemon       0:off   1:off   2:off   3:on    4:on    5:on    6:off</span><br><span class="line">ip6tables       0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">iptables        0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">irqbalance      0:off   1:off   2:off   3:on    4:on    5:on    6:off</span><br><span class="line">lvm2-monitor    0:off   1:on    2:on    3:on    4:on    5:on    6:off</span><br><span class="line">mdmonitor       0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">messagebus      0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">netconsole      0:off   1:off   2:off   3:off   4:off   5:off   6:off</span><br><span class="line">netfs           0:off   1:off   2:off   3:on    4:on    5:on    6:off</span><br><span class="line">network         0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">nfslock         0:off   1:off   2:off   3:on    4:on    5:on    6:off</span><br><span class="line">portreserve     0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">postfix         0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">rdma            0:off   1:on    2:on    3:on    4:on    5:on    6:off</span><br><span class="line">restorecond     0:off   1:off   2:off   3:off   4:off   5:off   6:off</span><br><span class="line">rpcbind         0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">rpcgssd         0:off   1:off   2:off   3:on    4:on    5:on    6:off</span><br><span class="line">rsyslog         0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">spice-vdagentd  0:off   1:off   2:off   3:off   4:off   5:on    6:off</span><br><span class="line">sshd            0:off   1:off   2:on    3:on    4:on    5:on    6:off</span><br><span class="line">sysstat         0:off   1:on    2:on    3:on    4:on    5:on    6:off</span><br><span class="line">udev-post       0:off   1:on    2:on    3:on    4:on    5:on    6:off</span><br><span class="line">wdaemon         0:off   1:off   2:off   3:off   4:off   5:off   6:off</span><br></pre></td></tr></table></figure>
-<h3 id="4-2-关闭服务"><a href="#4-2-关闭服务" class="headerlink" title="4.2 关闭服务"></a>4.2 关闭服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chkconfig bluetooth off；chkconfig ip6tables off;chkconfig iptables off；</span><br><span class="line">service bluetooth stop;service ip6tables stop;service iptables stop;</span><br></pre></td></tr></table></figure>
-<h2 id="5-优化"><a href="#5-优化" class="headerlink" title="5 优化"></a>5 优化</h2><h3 id="5-1-调整文件描述符大小"><a href="#5-1-调整文件描述符大小" class="headerlink" title="5.1 调整文件描述符大小"></a>5.1 调整文件描述符大小</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看文件描述符大小</span></span><br><span class="line"><span class="built_in">ulimit</span> -n</span><br><span class="line"><span class="comment"># 调整</span></span><br><span class="line">vi /etc/security/limits.conf</span><br><span class="line">* soft nofile 65535</span><br><span class="line">* hard nofile 65535</span><br><span class="line">* soft nproc 65535</span><br><span class="line">* hard nproc 65535</span><br><span class="line">* soft nofile 65535</span><br><span class="line">* hard nofile 65535</span><br></pre></td></tr></table></figure>
-<h3 id="5-2-内核参数优化"><a href="#5-2-内核参数优化" class="headerlink" title="5.2 内核参数优化"></a>5.2 内核参数优化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysctl.conf</span><br><span class="line"><span class="comment">#添加：</span></span><br><span class="line">net.ipv4.tcp_max_syn_backlog = 65536</span><br><span class="line">net.core.netdev_max_backlog = 32768</span><br><span class="line">net.core.somaxconn = 32768</span><br><span class="line"></span><br><span class="line">net.core.wmem_default = 8388608</span><br><span class="line">net.core.rmem_default = 8388608</span><br><span class="line">net.core.rmem_max = 16777216</span><br><span class="line">net.core.wmem_max = 16777216</span><br><span class="line"></span><br><span class="line">net.ipv4.tcp_timestamps = 0</span><br><span class="line">net.ipv4.tcp_synack_retries = 2</span><br><span class="line">net.ipv4.tcp_syn_retries = 2</span><br><span class="line"></span><br><span class="line">net.ipv4.tcp_tw_reuse = 1</span><br><span class="line">net.ipv4.tcp_max_tw_buckets=10000</span><br><span class="line">net.ipv4.tcp_mem = 94500000 915000000 927000000</span><br><span class="line">net.ipv4.tcp_max_orphans = 3276800</span><br><span class="line">生效：/sbin/sysctl -p</span><br></pre></td></tr></table></figure>
-<h2 id="6-时间同步"><a href="#6-时间同步" class="headerlink" title="6 时间同步"></a>6 时间同步</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br><span class="line"><span class="comment"># xxx为时间同步服务器地址</span></span><br><span class="line"><span class="comment">#*/5 * * * * /usr/sbin/ntpdate xxxx  &gt;/dev/null 2 &gt;&amp;1</span></span><br></pre></td></tr></table></figure>
-<h2 id="7-修改网卡配置"><a href="#7-修改网卡配置" class="headerlink" title="7 修改网卡配置"></a>7 修改网卡配置</h2><h3 id="7-1-删除网卡PCI记录"><a href="#7-1-删除网卡PCI记录" class="headerlink" title="7.1 删除网卡PCI记录"></a>7.1 删除网卡PCI记录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/udev/rules.d/70-persistent-net.rules</span><br><span class="line"><span class="comment">#删除：</span></span><br><span class="line">SUBSYSTEM==<span class="string">"net"</span>, ACTION==<span class="string">"add"</span>, DRIVERS==<span class="string">"?*"</span>, ATTR&#123;address&#125;==<span class="string">"00:50:56:be:00:5c"</span>, ATTR&#123;<span class="built_in">type</span>&#125;==<span class="string">"1"</span>, KERNEL==<span class="string">"eth*"</span>, NAME=<span class="string">"eth1"</span></span><br></pre></td></tr></table></figure>
-<h3 id="7-2-删除ip-mac地址"><a href="#7-2-删除ip-mac地址" class="headerlink" title="7.2 删除ip mac地址"></a>7.2 删除ip mac地址</h3>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">keepalived</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vmware</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/操作系统//" class="article-tag-list-link color5">操作系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
+          
 
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://zhanghuaisheng.github.io/2018/10/30/centos6-9虚拟机模版制作/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/10/31/nginx/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          nginx
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/10/29/my-blog/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第一篇博客</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-挂载本地ios镜像文件作为yum源"><span class="toc-number">1.</span> <span class="toc-text">1 挂载本地ios镜像文件作为yum源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-连接虚拟机的ios数据文件"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 连接虚拟机的ios数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-创建目录-mnt-cdrom"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 创建目录/mnt/cdrom</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-挂载光盘"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 挂载光盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-编辑yum文件"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 编辑yum文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装依赖包"><span class="toc-number">2.</span> <span class="toc-text">2 安装依赖包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-升级openssh7-6p1"><span class="toc-number">3.</span> <span class="toc-text">3 升级openssh7.6p1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-上传安装包"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 上传安装包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-升级openssl"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 升级openssl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-升级openssh"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 升级openssh</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-关闭不使用的服务"><span class="toc-number">4.</span> <span class="toc-text">4 关闭不使用的服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-查看开启的服务列表"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 查看开启的服务列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-关闭服务"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 关闭服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-优化"><span class="toc-number">5.</span> <span class="toc-text">5 优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-调整文件描述符大小"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 调整文件描述符大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-内核参数优化"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 内核参数优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-时间同步"><span class="toc-number">6.</span> <span class="toc-text">6 时间同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-修改网卡配置"><span class="toc-number">7.</span> <span class="toc-text">7 修改网卡配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-删除网卡PCI记录"><span class="toc-number">7.1.</span> <span class="toc-text">7.1 删除网卡PCI记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-删除ip-mac地址"><span class="toc-number">7.2.</span> <span class="toc-text">7.2 删除ip mac地址</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-
-  
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-<!--
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
--->
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: '10730e5171b6f0a7b5f9',
-  	clientSecret: 'ad58ac1f12a980db5a765d223e7281c169d94810',
-  	repo: 'zhanghuaisheng.github.io',
-  	owner: 'zhanghuaisheng',
-  	admin: ['zhanghuaisheng'],
-  	id: 'Tue Oct 30 2018 16:57:19 GMT+0800',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-  
-  
+    
 
 
           </div>
@@ -408,9 +238,9 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
