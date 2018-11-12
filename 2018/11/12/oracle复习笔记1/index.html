@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://zhanghuaisheng.github.io">
   <title>oracle复习笔记:（一）sql语法 | zhs&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="（一）sql语法DML（Data manipulation language）：SELECTINSERTUPDATEDELETEMERGEDDL(Data definition language):CREATEALTERDROPRENAMETRUNCATECOMMENT DCL(Data control language):GRANTREVOKE Transaction control:COMMI">
+  <meta name="description" content="（一）sql语法DML（Data manipulation language）：SELECTINSERTUPDATEDELETEMERGEDDL(Data definition language):CREATEALTERDROPRENAMETRUNCATECOMMENTDCL(Data control language):GRANTREVOKETransaction control:COMMITR">
 <meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="oracle复习笔记:（一）sql语法">
-<meta property="og:url" content="https://zhanghuaisheng.github.io/2018/10/31/oracle复习笔记1/index.html">
+<meta property="og:url" content="https://zhanghuaisheng.github.io/2018/11/12/oracle复习笔记1/index.html">
 <meta property="og:site_name" content="zhs&#39;s blog">
-<meta property="og:description" content="（一）sql语法DML（Data manipulation language）：SELECTINSERTUPDATEDELETEMERGEDDL(Data definition language):CREATEALTERDROPRENAMETRUNCATECOMMENT DCL(Data control language):GRANTREVOKE Transaction control:COMMI">
+<meta property="og:description" content="（一）sql语法DML（Data manipulation language）：SELECTINSERTUPDATEDELETEMERGEDDL(Data definition language):CREATEALTERDROPRENAMETRUNCATECOMMENTDCL(Data control language):GRANTREVOKETransaction control:COMMITR">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-12T10:16:08.522Z">
+<meta property="og:updated_time" content="2018-11-12T10:27:52.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle复习笔记:（一）sql语法">
-<meta name="twitter:description" content="（一）sql语法DML（Data manipulation language）：SELECTINSERTUPDATEDELETEMERGEDDL(Data definition language):CREATEALTERDROPRENAMETRUNCATECOMMENT DCL(Data control language):GRANTREVOKE Transaction control:COMMI">
+<meta name="twitter:description" content="（一）sql语法DML（Data manipulation language）：SELECTINSERTUPDATEDELETEMERGEDDL(Data definition language):CREATEALTERDROPRENAMETRUNCATECOMMENTDCL(Data control language):GRANTREVOKETransaction control:COMMITR">
   
     <link rel="alternative" href="/atom.xml" title="zhs&#39;s blog" type="application/atom+xml">
   
@@ -169,44 +169,43 @@
   
 
         
-        <a href="/2018/10/31/oracle复习笔记1/" class="archive-article-date">
-  	<time datetime="2018-10-31T07:19:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-31</time>
+        <a href="/2018/11/12/oracle复习笔记1/" class="archive-article-date">
+  	<time datetime="2018-11-12T10:25:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="（一）sql语法"><a href="#（一）sql语法" class="headerlink" title="（一）sql语法"></a>（一）sql语法</h2><p>DML（Data manipulation language）：<br>SELECT<br>INSERT<br>UPDATE<br>DELETE<br>MERGE<br>DDL(Data definition language):<br>CREATE<br>ALTER<br>DROP<br>RENAME<br>TRUNCATE<br>COMMENT</p>
-<p>DCL(Data control language):<br>GRANT<br>REVOKE</p>
-<p>Transaction control:<br>COMMIT<br>ROLLBACK<br>SAVEPOINT<br><a id="more"></a></p>
-<h3 id="1-1-DML-数据操作语句"><a href="#1-1-DML-数据操作语句" class="headerlink" title="1.1 DML(数据操作语句)"></a>1.1 DML(数据操作语句)</h3><h4 id="1-1-1-select"><a href="#1-1-1-select" class="headerlink" title="1.1.1 select"></a>1.1.1 select</h4><p>基础结构：SELECT  *|{[DISTINCT] column [alias],…} FROM  table;</p>
+        <h2 id="（一）sql语法"><a href="#（一）sql语法" class="headerlink" title="（一）sql语法"></a>（一）sql语法</h2><p>DML（Data manipulation language）：<br>SELECT<br>INSERT<br>UPDATE<br>DELETE<br>MERGE<br>DDL(Data definition language):<br>CREATE<br>ALTER<br>DROP<br>RENAME<br>TRUNCATE<br>COMMENT<br>DCL(Data control language):<br>GRANT<br>REVOKE<br>Transaction control:<br>COMMIT<br>ROLLBACK<br>SAVEPOINT<br><a id="more"></a></p>
+<h3 id="1-1-DML-数据操作语句"><a href="#1-1-DML-数据操作语句" class="headerlink" title="1.1 DML(数据操作语句)"></a>1.1 DML(数据操作语句)</h3><h4 id="1-1-1-select"><a href="#1-1-1-select" class="headerlink" title="1.1.1 select"></a>1.1.1 select</h4><p>基础结构：<code>SELECT  *|{[DISTINCT] column [alias],...} FROM  table;</code></p>
 <p>DISTINCT:去重<br>alias：别名<br>column：字段名<br>table：表名</p>
-<p>例：<br>查全表 select * from departments;<br>图sql_select_basic</p>
-<p>NULL值：是不可用、未分配、未知或不适用的值<br>select last_name,commission_pct from employees;<br>图 sql_select_null</p>
-<p>定义一个字段别名</p>
+<p>例：<br>查全表 <code>select * from departments</code>;<br>图sql_select_basic</p>
+<p><a href="https://zhanghuaisheng.github.io/assets/img/sql_select_basic.jpg" title="sql_select_basic">图sql_select_basic</a></p>
+<p><strong>NULL值</strong>：是不可用、未分配、未知或不适用的值<br>select last_name,commission_pct from employees;<br>图 sql_select_null</p>
+<p><strong>定义一个字段别名</strong></p>
 <ul>
 <li>重命名字段的名字</li>
 <li>有助于计算</li>
 <li>可以使用as关键字，也可以直接在字段后空一格跟别名</li>
 <li>如果包含空格或特殊字符，或区分大小写，则需要双引号</li>
 </ul>
-<p>select last_name as name,commission_pct comm from employees;</p>
+<p><code>select last_name as name,commission_pct comm from employees;</code></p>
 <p>图sql_select_alias</p>
-<p>连接字符串：|| </p>
+<p><strong>连接字符串：|| </strong></p>
 <ul>
 <li>将列或字符串链接到其他列</li>
 <li>使用 ||</li>
 <li>创建一个字符表达式的合成列<br>SELECT    last_name||job_id AS “Employees”  FROM employees;<br>图sql_select_link</li>
 </ul>
-<p>文本字符串</p>
+<p><strong>文本字符串</strong></p>
 <ul>
 <li>文本是SELECT语句中包含的字符、数字或日期</li>
 <li>日期和字符文字值必须包含在单引号中</li>
 <li>每个字符串在返回的每一行中输出一次</li>
 </ul>
-<p>SELECT last_name ||’ is a ‘||job_id AS “Employee Details” FROM employees;<br>图 sql_select_literal</p>
-<p>q操作符</p>
+<p><code>SELECT last_name ||&#39; is a &#39;||job_id AS &quot;Employee Details&quot; FROM employees;</code><br>图 sql_select_literal</p>
+<p><strong>q操作符</strong></p>
 <ul>
 <li>定义字符串的边界</li>
 <li>增加可读性</li>
@@ -363,7 +362,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://zhanghuaisheng.github.io/2018/10/31/oracle复习笔记1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zhanghuaisheng.github.io/2018/11/12/oracle复习笔记1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -377,18 +376,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/10/31/nginx/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          nginx
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/10/30/centos6-9虚拟机模版制作/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">centos6.9虚拟机模版制作</div>
+    <a href="/2018/11/07/mysql安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql安装</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -452,7 +442,7 @@ if(true){
   	repo: 'zhanghuaisheng.github.io',
   	owner: 'zhanghuaisheng',
   	admin: ['zhanghuaisheng'],
-  	id: 'Wed Oct 31 2018 15:19:36 GMT+0800',
+  	id: 'Mon Nov 12 2018 18:25:36 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
