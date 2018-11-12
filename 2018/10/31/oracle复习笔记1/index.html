@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://zhanghuaisheng.github.io">
-  <title>mysql安装 | zhs&#39;s blog</title>
+  <title>oracle复习笔记:（一）sql语法 | zhs&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mysql安装安装mysql server端的方法">
-<meta name="keywords" content="mysql">
+  <meta name="description" content="（一）sql语法DML（Data manipulation language）：SELECTINSERTUPDATEDELETEMERGEDDL(Data definition language):CREATEALTERDROPRENAMETRUNCATECOMMENT DCL(Data control language):GRANTREVOKE Transaction control:COMMI">
+<meta name="keywords" content="oracle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql安装">
-<meta property="og:url" content="https://zhanghuaisheng.github.io/2018/11/07/mysql安装/index.html">
+<meta property="og:title" content="oracle复习笔记:（一）sql语法">
+<meta property="og:url" content="https://zhanghuaisheng.github.io/2018/10/31/oracle复习笔记1/index.html">
 <meta property="og:site_name" content="zhs&#39;s blog">
-<meta property="og:description" content="mysql安装安装mysql server端的方法">
+<meta property="og:description" content="（一）sql语法DML（Data manipulation language）：SELECTINSERTUPDATEDELETEMERGEDDL(Data definition language):CREATEALTERDROPRENAMETRUNCATECOMMENT DCL(Data control language):GRANTREVOKE Transaction control:COMMI">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-07T10:16:26.699Z">
+<meta property="og:updated_time" content="2018-11-12T10:16:08.522Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql安装">
-<meta name="twitter:description" content="mysql安装安装mysql server端的方法">
+<meta name="twitter:title" content="oracle复习笔记:（一）sql语法">
+<meta name="twitter:description" content="（一）sql语法DML（Data manipulation language）：SELECTINSERTUPDATEDELETEMERGEDDL(Data definition language):CREATEALTERDROPRENAMETRUNCATECOMMENT DCL(Data control language):GRANTREVOKE Transaction control:COMMI">
   
     <link rel="alternative" href="/atom.xml" title="zhs&#39;s blog" type="application/atom+xml">
   
@@ -157,44 +157,133 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-mysql安装" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-oracle复习笔记1" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      mysql安装
+      oracle复习笔记:（一）sql语法
     </h1>
   
 
         
-        <a href="/2018/11/07/mysql安装/" class="archive-article-date">
-  	<time datetime="2018-11-07T07:09:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-07</time>
+        <a href="/2018/10/31/oracle复习笔记1/" class="archive-article-date">
+  	<time datetime="2018-10-31T07:19:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="mysql安装"><a href="#mysql安装" class="headerlink" title="mysql安装"></a>mysql安装</h2><p>安装mysql server端的方法<br><a id="more"></a></p>
-<h3 id="1、rpm包安装，可以直接yum安装，不过版本比较低，上官网找新的版本的rpm包"><a href="#1、rpm包安装，可以直接yum安装，不过版本比较低，上官网找新的版本的rpm包" class="headerlink" title="1、rpm包安装，可以直接yum安装，不过版本比较低，上官网找新的版本的rpm包"></a>1、rpm包安装，可以直接yum安装，不过版本比较低，上官网找新的版本的rpm包</h3><p>官网链接：<a href="https://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/repo/yum/</a><br>mysql的yum源：<a href="http://repo.mysql.com/yum" target="_blank" rel="noopener">http://repo.mysql.com/yum</a><br>其中el代表着操作系统版本：<br>    el6—&gt;linux 6<br>    el7—&gt;linxu 7<br>下载了5.7.20版本的：</p>
-<h4 id="（1）、上传至服务器"><a href="#（1）、上传至服务器" class="headerlink" title="（1）、上传至服务器"></a>（1）、上传至服务器</h4><h4 id="（2）、卸载原先自带的mysql版本"><a href="#（2）、卸载原先自带的mysql版本" class="headerlink" title="（2）、卸载原先自带的mysql版本"></a>（2）、卸载原先自带的mysql版本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa |grep mysql 	 <span class="comment">#查找安装的mysql</span></span><br><span class="line">rpm -e mysql　　		 // 普通删除模式</span><br><span class="line">rpm -e --nodeps mysql　　// 强力删除模式，如果使用上面命令删除时，提示有依赖的其它文件，则用该命令可以对其进行强力删除</span><br></pre></td></tr></table></figure>
-<h4 id="（3）、安装—–安装有依赖关系"><a href="#（3）、安装—–安装有依赖关系" class="headerlink" title="（3）、安装—–安装有依赖关系"></a>（3）、安装—–安装有依赖关系</h4><p><code>common---&gt;libs---&gt; devel---&gt; client ---&gt;server</code><br><code>rpm -ivh xxxx</code></p>
-<h4 id="（4）、启动数据库"><a href="#（4）、启动数据库" class="headerlink" title="（4）、启动数据库"></a>（4）、启动数据库</h4><p>初始化：<code>mysqld --initialize</code><br>启动： <code>service msyqld start</code></p>
-<p>注：这里启动会遇到一个问题：启动失败 <code>MySQL Daemon failed to start.</code><br>解决：第一次运行会初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -fr /var/lib/mysql/*</span><br><span class="line">rm /var/lock/subsys/mysqld</span><br></pre></td></tr></table></figure></p>
-<h4 id="（5）、连接数据库"><a href="#（5）、连接数据库" class="headerlink" title="（5）、连接数据库"></a>（5）、连接数据库</h4><p>初始化后root有个初始密码，到<code>/var/log/mysql</code>查看：<br><code>[Note] A temporary password is generated for root@localhost: lbn11/dHVoaC</code><br><code>mysql -u root -p</code>输入初始密码连接到数据库内<br>登录后首先要更改密码<br><code>set Password=password(&#39;Cesf_mysql99&#39;);</code></p>
-<h3 id="2、二进制通用包安装，官网下载对应版本的包进行安装"><a href="#2、二进制通用包安装，官网下载对应版本的包进行安装" class="headerlink" title="2、二进制通用包安装，官网下载对应版本的包进行安装"></a>2、二进制通用包安装，官网下载对应版本的包进行安装</h3><p>mysql 5.7.21 linux安装</p>
-<h4 id="1-下载安装包mysql-5-7-21-linux-glibc2-12-x86-64"><a href="#1-下载安装包mysql-5-7-21-linux-glibc2-12-x86-64" class="headerlink" title="(1) 下载安装包mysql-5.7.21-linux-glibc2.12-x86_64"></a>(1) 下载安装包<code>mysql-5.7.21-linux-glibc2.12-x86_64</code></h4><p>官网下载，有最新版的<br>    <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
-<h4 id="2-解压安装包"><a href="#2-解压安装包" class="headerlink" title="(2) 解压安装包"></a>(2) 解压安装包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/</span><br><span class="line">tar -zxvf mysql-5.7.21-linux-glibc2.12-x86_64.tar.gz</span><br><span class="line">mv mysql-5.7.21-linux-glibc2.12-x86_64/ mysql/</span><br></pre></td></tr></table></figure>
-<h4 id="3-创建用户组"><a href="#3-创建用户组" class="headerlink" title="(3) 创建用户组"></a>(3) 创建用户组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd mysql -p mysql</span><br><span class="line">chown -R mysql:mysql mysql/</span><br></pre></td></tr></table></figure>
-<h4 id="4-创建配置文件"><a href="#4-创建配置文件" class="headerlink" title="(4) 创建配置文件"></a>(4) 创建配置文件</h4><p>切换到root <code>vim /etc/my.cnf</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">port = 3306</span><br><span class="line">socket = /tmp/mysql.sock</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">character_set_server=utf8</span><br><span class="line">init_connect=<span class="string">'SET NAMES utf8'</span></span><br><span class="line">basedir=/usr/<span class="built_in">local</span>/mysql</span><br><span class="line">datadir=/usr/<span class="built_in">local</span>/mysql/data</span><br><span class="line">socket=/tmp/mysql.sock</span><br><span class="line"><span class="built_in">log</span>-error=/var/<span class="built_in">log</span>/mysqld.log</span><br><span class="line">pid-file=/var/run/mysqld/mysqld.pid</span><br><span class="line"><span class="comment">#不区分大小写</span></span><br><span class="line">lower_case_table_names = 1</span><br><span class="line"></span><br><span class="line">sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</span><br><span class="line"></span><br><span class="line">max_connections=5000</span><br><span class="line">default-time_zone = <span class="string">'+8:00'</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="5-安装"><a href="#5-安装" class="headerlink" title="(5) 安装"></a>(5) 安装</h4><p>先安装一下这个包，要不然初始化有可能会报错<br>            <code>yum install libaio</code><br>手动编辑一下日志文件，什么也不用写，直接保存退出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/<span class="built_in">log</span>/</span><br><span class="line">vim mysqld.log</span><br><span class="line">：wq</span><br><span class="line">chmod 777 mysqld.log</span><br><span class="line">chown mysql:mysql mysqld.log</span><br><span class="line">/usr/<span class="built_in">local</span>/mysql/bin/mysqld --initialize --user=mysql --basedir=/usr/<span class="built_in">local</span>/mysql --datadir=/usr/<span class="built_in">local</span>/mysql/data --lc_messages_dir=/usr/<span class="built_in">local</span>/mysql/share --lc_messages=en_US</span><br></pre></td></tr></table></figure></p>
-<h4 id="6-查看初始密码"><a href="#6-查看初始密码" class="headerlink" title="(6) 查看初始密码"></a>(6) 查看初始密码</h4><p><code>cat /var/log/mysqld.log</code>    最后一行</p>
-<h4 id="7-启动服务"><a href="#7-启动服务" class="headerlink" title="(7) 启动服务"></a>(7) 启动服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/mysql/support-files</span><br><span class="line">cp mysql.server /etc/init.d/mysqld</span><br><span class="line"></span><br><span class="line">cd /var/run/</span><br><span class="line">mkdir mysqld</span><br><span class="line">chmod 777 mysqld</span><br><span class="line">cd mysqld</span><br><span class="line">vim mysqld.pid</span><br><span class="line">chmod 777 mysqld.pid</span><br><span class="line">chown mysql:mysql mysqld.pid </span><br><span class="line"></span><br><span class="line">service mysqld start</span><br></pre></td></tr></table></figure>
-<h4 id="8-连接数据库，更改初始密码，增加远程用户登录"><a href="#8-连接数据库，更改初始密码，增加远程用户登录" class="headerlink" title="(8) 连接数据库，更改初始密码，增加远程用户登录"></a>(8) 连接数据库，更改初始密码，增加远程用户登录</h4><p><code>/usr/local/mysql/bin/mysql -uroot -p</code> 你在上面看到的初始密码<br>如果提示必须要修改密码才可以进行操作的话则执行下面操作<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">password</span>=<span class="keyword">password</span>(<span class="string">'新密码'</span>);</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> <span class="string">`mysql`</span>.<span class="string">`user`</span> <span class="keyword">SET</span> <span class="string">`Host`</span> = <span class="string">'%'</span>,  <span class="string">`User`</span> = <span class="string">'root'</span>  <span class="keyword">WHERE</span> (<span class="string">`Host`</span> = <span class="string">'localhost'</span>) <span class="keyword">AND</span> (<span class="string">`User`</span> = <span class="string">'root'</span>);</span><br><span class="line"><span class="keyword">use</span> mysql;</span><br><span class="line"><span class="keyword">UPDATE</span> <span class="string">`mysql`</span>.<span class="string">`user`</span> <span class="keyword">SET</span> <span class="string">`Host`</span>=<span class="string">'%'</span>, <span class="string">`User`</span>=<span class="string">'root'</span>, <span class="string">`Select_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Insert_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Update_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Delete_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Create_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Drop_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Reload_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Shutdown_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Process_priv`</span>=<span class="string">'Y'</span>, <span class="string">`File_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Grant_priv`</span>=<span class="string">'Y'</span>, <span class="string">`References_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Index_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Alter_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Show_db_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Super_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Create_tmp_table_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Lock_tables_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Execute_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Repl_slave_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Repl_client_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Create_view_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Show_view_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Create_routine_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Alter_routine_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Create_user_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Event_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Trigger_priv`</span>=<span class="string">'Y'</span>, <span class="string">`Create_tablespace_priv`</span>=<span class="string">'Y'</span>, <span class="string">`ssl_type`</span>=<span class="string">''</span>, <span class="string">`ssl_cipher`</span>=<span class="string">''</span>, <span class="string">`x509_issuer`</span>=<span class="string">''</span>, <span class="string">`x509_subject`</span>=<span class="string">''</span>, <span class="string">`max_questions`</span>=<span class="string">'0'</span>, <span class="string">`max_updates`</span>=<span class="string">'0'</span>, <span class="string">`max_connections`</span>=<span class="string">'0'</span>, <span class="string">`max_user_connections`</span>=<span class="string">'0'</span>, <span class="string">`plugin`</span>=<span class="string">'mysql_native_password'</span>, <span class="string">`authentication_string`</span>=<span class="string">'*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9'</span>, <span class="string">`password_expired`</span>=<span class="string">'N'</span>, <span class="string">`password_last_changed`</span>=<span class="string">'2017-11-20 12:41:07'</span>, <span class="string">`password_lifetime`</span>=<span class="literal">NULL</span>, <span class="string">`account_locked`</span>=<span class="string">'N'</span> <span class="keyword">WHERE</span>  (<span class="string">`User`</span>=<span class="string">'root'</span>);</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line">            <span class="comment">#建立远程用户</span></span><br><span class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'新用户名'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'新密码'</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure></p>
-<h4 id="9-添加系统路径"><a href="#9-添加系统路径" class="headerlink" title="(9) 添加系统路径"></a>(9) 添加系统路径</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br><span class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/mysql/bin:<span class="variable">$PATH</span></span><br><span class="line">. .bash_profile</span><br></pre></td></tr></table></figure>
-
+        <h2 id="（一）sql语法"><a href="#（一）sql语法" class="headerlink" title="（一）sql语法"></a>（一）sql语法</h2><p>DML（Data manipulation language）：<br>SELECT<br>INSERT<br>UPDATE<br>DELETE<br>MERGE<br>DDL(Data definition language):<br>CREATE<br>ALTER<br>DROP<br>RENAME<br>TRUNCATE<br>COMMENT</p>
+<p>DCL(Data control language):<br>GRANT<br>REVOKE</p>
+<p>Transaction control:<br>COMMIT<br>ROLLBACK<br>SAVEPOINT<br><a id="more"></a></p>
+<h3 id="1-1-DML-数据操作语句"><a href="#1-1-DML-数据操作语句" class="headerlink" title="1.1 DML(数据操作语句)"></a>1.1 DML(数据操作语句)</h3><h4 id="1-1-1-select"><a href="#1-1-1-select" class="headerlink" title="1.1.1 select"></a>1.1.1 select</h4><p>基础结构：SELECT  *|{[DISTINCT] column [alias],…} FROM  table;</p>
+<p>DISTINCT:去重<br>alias：别名<br>column：字段名<br>table：表名</p>
+<p>例：<br>查全表 select * from departments;<br>图sql_select_basic</p>
+<p>NULL值：是不可用、未分配、未知或不适用的值<br>select last_name,commission_pct from employees;<br>图 sql_select_null</p>
+<p>定义一个字段别名</p>
+<ul>
+<li>重命名字段的名字</li>
+<li>有助于计算</li>
+<li>可以使用as关键字，也可以直接在字段后空一格跟别名</li>
+<li>如果包含空格或特殊字符，或区分大小写，则需要双引号</li>
+</ul>
+<p>select last_name as name,commission_pct comm from employees;</p>
+<p>图sql_select_alias</p>
+<p>连接字符串：|| </p>
+<ul>
+<li>将列或字符串链接到其他列</li>
+<li>使用 ||</li>
+<li>创建一个字符表达式的合成列<br>SELECT    last_name||job_id AS “Employees”  FROM employees;<br>图sql_select_link</li>
+</ul>
+<p>文本字符串</p>
+<ul>
+<li>文本是SELECT语句中包含的字符、数字或日期</li>
+<li>日期和字符文字值必须包含在单引号中</li>
+<li>每个字符串在返回的每一行中输出一次</li>
+</ul>
+<p>SELECT last_name ||’ is a ‘||job_id AS “Employee Details” FROM employees;<br>图 sql_select_literal</p>
+<p>q操作符</p>
+<ul>
+<li>定义字符串的边界</li>
+<li>增加可读性</li>
+<li>选择任何定界符,比如[]、()</li>
+</ul>
+<p>SELECT department_name || q’( Department’s Manager Id: )’|| manager_id AS “Department and Manager” FROM departments;<br>图 sql_select_quote</p>
+<p>去重：使用distinct关键字</p>
+<p>DESCRIBE命令：简写desc,可以查询表结构<br><code>DESC[RIBE] tablename</code></p>
+<p>describe employees<br>图sql_desc</p>
+<h5 id="WHERE-子句"><a href="#WHERE-子句" class="headerlink" title="WHERE 子句"></a>WHERE 子句</h5><ul>
+<li>筛选结果</li>
+<li>比较操作符&lt;=,&gt;,=,between,in,like,null</li>
+<li>逻辑操作符 and,or,not</li>
+</ul>
+<p>in(set):匹配值列表中的任何一个<br>like: 匹配字符串，’s%’，%代表所有值不匹配，_表示前一个字符不匹配<br>is null：是否是null值<br>between…and..:在两个值之间<br>and:全满足为真，输出<br>or:满足任意条件，输出<br>not：条件为假输出</p>
+<p>如果有多个不同条件，运算前后顺序：<br>运算–&gt;连接–&gt;比较–&gt; is null,like,in–&gt;between —&gt;not equal to –&gt; not –&gt; and —&gt; or</p>
+<p><code>SELECT  *|{[DISTINCT] column [alias],...} FROM  table [WHERE logical expression(s)];</code></p>
+<p>字符串和日期：</p>
+<ul>
+<li>字符串和日期值用单引号括起来</li>
+<li>字符值区分大小写，日期值区分格式</li>
+<li>日期格式为：DD-MON-RR</li>
+</ul>
+<h5 id="ORDER-BY-子句"><a href="#ORDER-BY-子句" class="headerlink" title="ORDER BY 子句"></a>ORDER BY 子句</h5><p>给结果排序：</p>
+<ul>
+<li>ASC:增序，默认，从小到大</li>
+<li>DESC：降序，从大到小</li>
+<li>orader by后跟字段名，也可以是数字，数字代表前面select的第几个字段 </li>
+<li>日期比较顺序为，日–&gt;月–&gt;年</li>
+<li>多列排序，字段在前的先排序</li>
+</ul>
+<p>SELECT last_name, department_id, salary FROM employees ORDER BY department_id , salary DESC;<br>图sql_orderby<br>行限制语句</p>
+<ul>
+<li>使用FETCH FIRST关键字指定要返回的行数或行数百分比</li>
+<li>使用OFFSET关键字来指定从第几行返回，下一行开始</li>
+<li>WITH TIES关键字包含与行限制结果集中最后一行的排序键相同的其他行(必须在查询中指定ORDER BY)</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> …</span><br><span class="line">   <span class="keyword">FROM</span> …</span><br><span class="line"> [ <span class="keyword">WHERE</span> …  ]</span><br><span class="line"> [ <span class="keyword">ORDER</span> <span class="keyword">BY</span> …  ]</span><br><span class="line"> [<span class="keyword">OFFSET</span> <span class="keyword">offset</span> &#123; <span class="keyword">ROW</span> | <span class="keyword">ROWS</span> &#125;]</span><br><span class="line">[<span class="keyword">FETCH</span> &#123; <span class="keyword">FIRST</span> | <span class="keyword">NEXT</span> &#125; [&#123; <span class="keyword">row_count</span> | <span class="keyword">percent</span> <span class="keyword">PERCENT</span> &#125;] &#123; <span class="keyword">ROW</span> | <span class="keyword">ROWS</span> &#125; </span><br><span class="line">  &#123; <span class="keyword">ONLY</span> | <span class="keyword">WITH</span> <span class="keyword">TIES</span> &#125;]</span><br></pre></td></tr></table></figure>
+<p>SELECT employee_id, first_name FROM employees ORDER BY employee_id FETCH FIRST 5 ROWS ONLY<br>图 sql_fetch</p>
+<p>SELECT employee_id, first_name FROM employees ORDER BY employee_id OFFSET 5 ROWS FETCH NEXT 5 ROWS ONLY;<br>图 sql_offset</p>
+<p>define：定义变量，&amp;变量名 取值，undefine取消变量<br>verify：SET VERIFY ON 生效变量</p>
+<h4 id="单行函数"><a href="#单行函数" class="headerlink" title="单行函数"></a>单行函数</h4><ul>
+<li>计算数值</li>
+<li>接受变量，返回结果</li>
+<li>每行执行结果</li>
+<li>每行返回一个结果</li>
+<li>可能会修改数据类型</li>
+<li>可嵌套</li>
+<li>接受可以是列或表达式的参数<br><code>function_name [(arg1, arg2,...)]</code></li>
+</ul>
+<h5 id="General"><a href="#General" class="headerlink" title="General:"></a>General:</h5><ul>
+<li>NVL:如果oracle第一个参数为空那么显示第二个参数的值，如果第一个参数的值不为空，则显示第一个参数本来的值。<br><code>NVL (expr1, expr2)</code></li>
+<li><p>NVL2:如果该函数的第一个参数为空那么显示第二个参数的值，如果第一个参数的值不为空，则显示第三个参数的值<br><code>NULLIF (expr1, expr2)</code></p>
+</li>
+<li><p>NULLIF:如果exp1和exp2相等则返回空(NULL)，否则返回第一个值<br><code>NULLIF (expr1, expr2)</code><br>COALESCE:返回表达式中第一个非空表达式,所有表达式必须是相同类型，或者可以隐性转换为相同的类型。<br><code>COALESCE (expr1, expr2, ..., exprn)</code></p>
+<h5 id="case-Expression"><a href="#case-Expression" class="headerlink" title="case Expression:"></a>case Expression:</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CASE expr WHEN comparison_expr1 THEN return_expr1</span><br><span class="line">         [WHEN comparison_expr2 THEN return_expr2</span><br><span class="line">          WHEN comparison_exprn THEN return_exprn</span><br><span class="line">          ELSE else_expr]</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,salary, </span><br><span class="line">(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> salary&lt;<span class="number">5000</span> <span class="keyword">THEN</span> <span class="string">'Low'</span> </span><br><span class="line">      <span class="keyword">WHEN</span> salary&lt;<span class="number">10000</span> <span class="keyword">THEN</span> <span class="string">'Medium'</span> </span><br><span class="line">      <span class="keyword">WHEN</span> salary&lt;<span class="number">20000</span> <span class="keyword">THEN</span> <span class="string">'Good'</span> </span><br><span class="line">      <span class="keyword">ELSE</span> <span class="string">'Excellent'</span> </span><br><span class="line"><span class="keyword">END</span>) qualified_salary </span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>图sql_select_case</p>
+<h5 id="decode-function"><a href="#decode-function" class="headerlink" title="decode function:"></a>decode function:</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">DECODE(col|expression, search1, result1 </span><br><span class="line">      			   [, search2, result2,...,]</span><br><span class="line">      			   [, default])</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name, job_id, salary,</span><br><span class="line">       <span class="keyword">DECODE</span>(job_id, <span class="string">'IT_PROG'</span>,  <span class="number">1.10</span>*salary,</span><br><span class="line">                      <span class="string">'ST_CLERK'</span>, <span class="number">1.15</span>*salary,</span><br><span class="line">                      <span class="string">'SA_REP'</span>,   <span class="number">1.20</span>*salary,</span><br><span class="line">              salary)</span><br><span class="line">       REVISED_SALARY</span><br><span class="line"><span class="keyword">FROM</span>   employees;</span><br></pre></td></tr></table></figure>
+<p>图sql_decode_func</p>
+<h5 id="Character"><a href="#Character" class="headerlink" title="Character:"></a>Character:</h5><p>转换函数：Case-conversion<br>    lower:转成小写字母<br>    upper:转成大写字母<br>    initcap:首字母大写<br>图sql_case_conversion</p>
+<p>计算数值：Character-manipulation<br>concat:连接字符串<br>substr:截取字符串<br>length:计算字符串长度<br>instr:返回该字符所处位置<br>lpad | rpad:<br>trim:<br>replace:替换字符串<br>图：sql_character_manipulation</p>
+<h5 id="Number"><a href="#Number" class="headerlink" title="Number:"></a>Number:</h5><p>round:将值四舍五入到指定的小数位数<br>trunc:将值截断为指定的小时位数<br>ceil:返回大于或等于指定数字的最小整数<br>floor:返回等于或小于指定数字的最大整数<br>mod:返回余数<br>图sql_numberfuncation</p>
+<h5 id="Conversion"><a href="#Conversion" class="headerlink" title="Conversion:"></a>Conversion:</h5><ul>
+<li>数据类型转化：Data type conversion</li>
+<li><p>隐式转化：Implicit data type conversion<br>From varchar2 or char To number/date<br>From number/date To varchar2 or char</p>
+</li>
+<li><p>显示转化:Explicit data type conversion<br>to_char:<br><code>TO_CHAR(date[,&#39;format_model&#39;])</code><br>2018年11月12日 星期一<br>YYYY:年(4位数) 2018<br>YEAR:年（两位数） 18<br>MM:月两位数 11<br>MONTH:月，全名，Novabemer<br>MON: 三个字母的简写，nov<br>DY: 三个字母的星期简写，mon<br>DAY:全名，monday<br>DD:该月的数字天数<br>HH:小时–&gt; HH24<br>MI：分钟<br>SS: 秒</p>
+</li>
+</ul>
+<p><code>SELECT last_name, TO_CHAR(hire_date, &#39;DD Month YYYY&#39;) AS HIREDATE FROM  employees;</code><br>图sql_tochar_date<br><code>TO_CHAR(number[, &#39;format_model&#39;])</code><br>9：代表数字<br>0：强制显示零<br>$:美元<br>L:使用浮动的当地货币符号<br>.:小数点<br>,:打印逗号作为数千个指示器</p>
+<h5 id="to-date"><a href="#to-date" class="headerlink" title="to_date:"></a>to_date:</h5><p><code>TO_DATE(char[, &#39;format_model&#39;])</code></p>
+<h5 id="to-number"><a href="#to-number" class="headerlink" title="to_number:"></a>to_number:</h5><p><code>TO_NUMBER(char[, &#39;format_model&#39;])</code></p>
+<h5 id="Date"><a href="#Date" class="headerlink" title="Date:"></a>Date:</h5><p>图：date_format<br>系统时间：sysdate</p>
+<p>months_between:两个月之间的时间<br>add_months:加多少月<br>next_day：下一次星期几的日期是多少<br>last_day:月末最后一天<br>round：<br>trunc：<br>图 date_function<br>图 date_function2</p>
+<h4 id="组函数"><a href="#组函数" class="headerlink" title="组函数"></a>组函数</h4>
       
 
       
@@ -207,13 +296,24 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">oracle</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据库//" class="article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -263,7 +363,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://zhanghuaisheng.github.io/2018/11/07/mysql安装/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zhanghuaisheng.github.io/2018/10/31/oracle复习笔记1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,9 +377,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/10/31/nginx/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          nginx
+        
+      </div>
+    </a>
   
-    <a href="/2018/11/05/keepalived学习/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">keepalived学习</div>
+  
+    <a href="/2018/10/30/centos6-9虚拟机模版制作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">centos6.9虚拟机模版制作</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -298,6 +407,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）sql语法"><span class="toc-number">1.</span> <span class="toc-text">（一）sql语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-DML-数据操作语句"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 DML(数据操作语句)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-select"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1.1 select</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#WHERE-子句"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">WHERE 子句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ORDER-BY-子句"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">ORDER BY 子句</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#单行函数"><span class="toc-number">1.1.2.</span> <span class="toc-text">单行函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#General"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">General:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#case-Expression"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">case Expression:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#decode-function"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">decode function:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Character"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">Character:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Number"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">Number:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Conversion"><span class="toc-number">1.1.2.6.</span> <span class="toc-text">Conversion:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#to-date"><span class="toc-number">1.1.2.7.</span> <span class="toc-text">to_date:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#to-number"><span class="toc-number">1.1.2.8.</span> <span class="toc-text">to_number:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Date"><span class="toc-number">1.1.2.9.</span> <span class="toc-text">Date:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组函数"><span class="toc-number">1.1.3.</span> <span class="toc-text">组函数</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -330,7 +452,7 @@ if(true){
   	repo: 'zhanghuaisheng.github.io',
   	owner: 'zhanghuaisheng',
   	admin: ['zhanghuaisheng'],
-  	id: 'Wed Nov 07 2018 15:09:27 GMT+0800',
+  	id: 'Wed Oct 31 2018 15:19:36 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
