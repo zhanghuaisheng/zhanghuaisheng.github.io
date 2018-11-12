@@ -16,10 +16,30 @@
 <meta property="og:site_name" content="zhs&#39;s blog">
 <meta property="og:description" content="（一）sql语法DML（Data manipulation language）：SELECTINSERTUPDATEDELETEMERGEDDL(Data definition language):CREATEALTERDROPRENAMETRUNCATECOMMENTDCL(Data control language):GRANTREVOKETransaction control:COMMITR">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-12T10:27:52.315Z">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_select_basic.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_select_null.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_select_alias.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_select_link.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_select_literal.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_select_quote.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_desc.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_orderby.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_fetch.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_offset.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_select_case.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_decode_func.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_case_conversion.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_character_manipulation.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_numberfuncation.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/sql_tochar_date.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/date_format.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/date_function.jpg">
+<meta property="og:image" content="https://zhanghuaisheng.github.io/assets/img/date_function2.jpg">
+<meta property="og:updated_time" content="2018-11-12T10:59:39.111Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle复习笔记:（一）sql语法">
 <meta name="twitter:description" content="（一）sql语法DML（Data manipulation language）：SELECTINSERTUPDATEDELETEMERGEDDL(Data definition language):CREATEALTERDROPRENAMETRUNCATECOMMENTDCL(Data control language):GRANTREVOKETransaction control:COMMITR">
+<meta name="twitter:image" content="https://zhanghuaisheng.github.io/assets/img/sql_select_basic.jpg">
   
     <link rel="alternative" href="/atom.xml" title="zhs&#39;s blog" type="application/atom+xml">
   
@@ -178,11 +198,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="（一）sql语法"><a href="#（一）sql语法" class="headerlink" title="（一）sql语法"></a>（一）sql语法</h2><p>DML（Data manipulation language）：<br>SELECT<br>INSERT<br>UPDATE<br>DELETE<br>MERGE<br>DDL(Data definition language):<br>CREATE<br>ALTER<br>DROP<br>RENAME<br>TRUNCATE<br>COMMENT<br>DCL(Data control language):<br>GRANT<br>REVOKE<br>Transaction control:<br>COMMIT<br>ROLLBACK<br>SAVEPOINT<br><a id="more"></a></p>
-<h3 id="1-1-DML-数据操作语句"><a href="#1-1-DML-数据操作语句" class="headerlink" title="1.1 DML(数据操作语句)"></a>1.1 DML(数据操作语句)</h3><h4 id="1-1-1-select"><a href="#1-1-1-select" class="headerlink" title="1.1.1 select"></a>1.1.1 select</h4><p>基础结构：<code>SELECT  *|{[DISTINCT] column [alias],...} FROM  table;</code></p>
+<h3 id="1-1-DML-数据操作语句"><a href="#1-1-DML-数据操作语句" class="headerlink" title="1.1 DML(数据操作语句)"></a>1.1 DML(数据操作语句)</h3><h4 id="1-1-1-select"><a href="#1-1-1-select" class="headerlink" title="1.1.1 select"></a>1.1.1 select</h4><p><strong>基础结构</strong>：<code>SELECT  *|{[DISTINCT] column [alias],...} FROM  table;</code></p>
 <p>DISTINCT:去重<br>alias：别名<br>column：字段名<br>table：表名</p>
-<p>例：<br>查全表 <code>select * from departments</code>;<br>图sql_select_basic</p>
-<p><a href="https://zhanghuaisheng.github.io/assets/img/sql_select_basic.jpg" title="sql_select_basic">图sql_select_basic</a></p>
-<p><strong>NULL值</strong>：是不可用、未分配、未知或不适用的值<br>select last_name,commission_pct from employees;<br>图 sql_select_null</p>
+<p>例：<br>查全表 <code>select * from departments</code>;</p>
+<p><img src="https://zhanghuaisheng.github.io/assets/img/sql_select_basic.jpg" alt="图sql_select_basic" title="sql_select_basic"></p>
+<p><strong>NULL值</strong>：是不可用、未分配、未知或不适用的值<br><code>select last_name,commission_pct from employees;</code><br><img src="https://zhanghuaisheng.github.io/assets/img/sql_select_null.jpg" alt="图 sql_select_null"></p>
 <p><strong>定义一个字段别名</strong></p>
 <ul>
 <li>重命名字段的名字</li>
@@ -191,12 +211,12 @@
 <li>如果包含空格或特殊字符，或区分大小写，则需要双引号</li>
 </ul>
 <p><code>select last_name as name,commission_pct comm from employees;</code></p>
-<p>图sql_select_alias</p>
+<p><img src="https://zhanghuaisheng.github.io/assets/img/sql_select_alias.jpg" alt="图sql_select_alias"></p>
 <p><strong>连接字符串：|| </strong></p>
 <ul>
 <li>将列或字符串链接到其他列</li>
 <li>使用 ||</li>
-<li>创建一个字符表达式的合成列<br>SELECT    last_name||job_id AS “Employees”  FROM employees;<br>图sql_select_link</li>
+<li>创建一个字符表达式的合成列<br><code>SELECT    last_name||job_id AS &quot;Employees&quot;  FROM employees;</code><br><img src="https://zhanghuaisheng.github.io/assets/img/sql_select_link.jpg" alt="图sql_select_link"></li>
 </ul>
 <p><strong>文本字符串</strong></p>
 <ul>
@@ -204,32 +224,36 @@
 <li>日期和字符文字值必须包含在单引号中</li>
 <li>每个字符串在返回的每一行中输出一次</li>
 </ul>
-<p><code>SELECT last_name ||&#39; is a &#39;||job_id AS &quot;Employee Details&quot; FROM employees;</code><br>图 sql_select_literal</p>
+<p><code>SELECT last_name ||&#39; is a &#39;||job_id AS &quot;Employee Details&quot; FROM employees;</code></p>
+<p><img src="https://zhanghuaisheng.github.io/assets/img/sql_select_literal.jpg" alt="图sql_select_literal"></p>
 <p><strong>q操作符</strong></p>
 <ul>
 <li>定义字符串的边界</li>
 <li>增加可读性</li>
 <li>选择任何定界符,比如[]、()</li>
 </ul>
-<p>SELECT department_name || q’( Department’s Manager Id: )’|| manager_id AS “Department and Manager” FROM departments;<br>图 sql_select_quote</p>
-<p>去重：使用distinct关键字</p>
-<p>DESCRIBE命令：简写desc,可以查询表结构<br><code>DESC[RIBE] tablename</code></p>
-<p>describe employees<br>图sql_desc</p>
-<h5 id="WHERE-子句"><a href="#WHERE-子句" class="headerlink" title="WHERE 子句"></a>WHERE 子句</h5><ul>
+<p><code>SELECT department_name || q&#39;( Department&#39;s Manager Id: )&#39;|| manager_id AS &quot;Department and Manager&quot; FROM departments;</code></p>
+<p><img src="https://zhanghuaisheng.github.io/assets/img/sql_select_quote.jpg" alt="图sql_select_quote"></p>
+<p><strong>去重</strong>：使用<code>distinct</code>关键字</p>
+<p><strong>DESCRIBE命令</strong>：简写<code>desc</code>,可以查询表结构<br><code>DESC[RIBE] tablename</code><br><code>describe employees</code></p>
+<p><img src="https://zhanghuaisheng.github.io/assets/img/sql_desc.jpg" alt="图sql_desc"></p>
+<p><strong>WHERE 子句</strong></p>
+<ul>
 <li>筛选结果</li>
-<li>比较操作符&lt;=,&gt;,=,between,in,like,null</li>
-<li>逻辑操作符 and,or,not</li>
+<li>比较操作符<code>&lt;=,&gt;,=,between,in,like,null</code></li>
+<li>逻辑操作符 <code>and,or,not</code></li>
 </ul>
 <p>in(set):匹配值列表中的任何一个<br>like: 匹配字符串，’s%’，%代表所有值不匹配，_表示前一个字符不匹配<br>is null：是否是null值<br>between…and..:在两个值之间<br>and:全满足为真，输出<br>or:满足任意条件，输出<br>not：条件为假输出</p>
-<p>如果有多个不同条件，运算前后顺序：<br>运算–&gt;连接–&gt;比较–&gt; is null,like,in–&gt;between —&gt;not equal to –&gt; not –&gt; and —&gt; or</p>
+<p>如果有多个不同条件，运算前后顺序：<br><code>运算--&gt;连接--&gt;比较--&gt; is null,like,in--&gt;between ---&gt;not equal to --&gt; not --&gt; and ---&gt; or</code></p>
 <p><code>SELECT  *|{[DISTINCT] column [alias],...} FROM  table [WHERE logical expression(s)];</code></p>
-<p>字符串和日期：</p>
+<p><strong>字符串和日期：</strong></p>
 <ul>
 <li>字符串和日期值用单引号括起来</li>
 <li>字符值区分大小写，日期值区分格式</li>
-<li>日期格式为：DD-MON-RR</li>
+<li>日期格式为：<code>DD-MON-RR</code></li>
 </ul>
-<h5 id="ORDER-BY-子句"><a href="#ORDER-BY-子句" class="headerlink" title="ORDER BY 子句"></a>ORDER BY 子句</h5><p>给结果排序：</p>
+<p><strong>ORDER BY 子句</strong></p>
+<p>给结果排序：</p>
 <ul>
 <li>ASC:增序，默认，从小到大</li>
 <li>DESC：降序，从大到小</li>
@@ -237,17 +261,18 @@
 <li>日期比较顺序为，日–&gt;月–&gt;年</li>
 <li>多列排序，字段在前的先排序</li>
 </ul>
-<p>SELECT last_name, department_id, salary FROM employees ORDER BY department_id , salary DESC;<br>图sql_orderby<br>行限制语句</p>
+<p><code>SELECT last_name, department_id, salary FROM employees ORDER BY department_id , salary DESC;</code><br><img src="https://zhanghuaisheng.github.io/assets/img/sql_orderby.jpg" alt="图sql_orderby"></p>
+<p><strong>行限制语句</strong></p>
 <ul>
 <li>使用FETCH FIRST关键字指定要返回的行数或行数百分比</li>
 <li>使用OFFSET关键字来指定从第几行返回，下一行开始</li>
 <li>WITH TIES关键字包含与行限制结果集中最后一行的排序键相同的其他行(必须在查询中指定ORDER BY)</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> …</span><br><span class="line">   <span class="keyword">FROM</span> …</span><br><span class="line"> [ <span class="keyword">WHERE</span> …  ]</span><br><span class="line"> [ <span class="keyword">ORDER</span> <span class="keyword">BY</span> …  ]</span><br><span class="line"> [<span class="keyword">OFFSET</span> <span class="keyword">offset</span> &#123; <span class="keyword">ROW</span> | <span class="keyword">ROWS</span> &#125;]</span><br><span class="line">[<span class="keyword">FETCH</span> &#123; <span class="keyword">FIRST</span> | <span class="keyword">NEXT</span> &#125; [&#123; <span class="keyword">row_count</span> | <span class="keyword">percent</span> <span class="keyword">PERCENT</span> &#125;] &#123; <span class="keyword">ROW</span> | <span class="keyword">ROWS</span> &#125; </span><br><span class="line">  &#123; <span class="keyword">ONLY</span> | <span class="keyword">WITH</span> <span class="keyword">TIES</span> &#125;]</span><br></pre></td></tr></table></figure>
-<p>SELECT employee_id, first_name FROM employees ORDER BY employee_id FETCH FIRST 5 ROWS ONLY<br>图 sql_fetch</p>
-<p>SELECT employee_id, first_name FROM employees ORDER BY employee_id OFFSET 5 ROWS FETCH NEXT 5 ROWS ONLY;<br>图 sql_offset</p>
-<p>define：定义变量，&amp;变量名 取值，undefine取消变量<br>verify：SET VERIFY ON 生效变量</p>
-<h4 id="单行函数"><a href="#单行函数" class="headerlink" title="单行函数"></a>单行函数</h4><ul>
+<p><code>SELECT employee_id, first_name FROM employees ORDER BY employee_id FETCH FIRST 5 ROWS ONLY</code><br><img src="https://zhanghuaisheng.github.io/assets/img/sql_fetch.jpg" alt="图sql_fetch"></p>
+<p><code>SELECT employee_id, first_name FROM employees ORDER BY employee_id OFFSET 5 ROWS FETCH NEXT 5 ROWS ONLY;</code><br><img src="https://zhanghuaisheng.github.io/assets/img/sql_offset.jpg" alt="图sql_offset"></p>
+<p><strong>define</strong>：定义变量，&amp;变量名 取值，undefine取消变量<br><strong>verify</strong>：SET VERIFY ON 生效变量</p>
+<h5 id="单行函数"><a href="#单行函数" class="headerlink" title="单行函数"></a>单行函数</h5><ul>
 <li>计算数值</li>
 <li>接受变量，返回结果</li>
 <li>每行执行结果</li>
@@ -256,33 +281,46 @@
 <li>可嵌套</li>
 <li>接受可以是列或表达式的参数<br><code>function_name [(arg1, arg2,...)]</code></li>
 </ul>
-<h5 id="General"><a href="#General" class="headerlink" title="General:"></a>General:</h5><ul>
+<p><strong>General</strong></p>
+<ul>
 <li>NVL:如果oracle第一个参数为空那么显示第二个参数的值，如果第一个参数的值不为空，则显示第一个参数本来的值。<br><code>NVL (expr1, expr2)</code></li>
 <li><p>NVL2:如果该函数的第一个参数为空那么显示第二个参数的值，如果第一个参数的值不为空，则显示第三个参数的值<br><code>NULLIF (expr1, expr2)</code></p>
 </li>
-<li><p>NULLIF:如果exp1和exp2相等则返回空(NULL)，否则返回第一个值<br><code>NULLIF (expr1, expr2)</code><br>COALESCE:返回表达式中第一个非空表达式,所有表达式必须是相同类型，或者可以隐性转换为相同的类型。<br><code>COALESCE (expr1, expr2, ..., exprn)</code></p>
-<h5 id="case-Expression"><a href="#case-Expression" class="headerlink" title="case Expression:"></a>case Expression:</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CASE expr WHEN comparison_expr1 THEN return_expr1</span><br><span class="line">         [WHEN comparison_expr2 THEN return_expr2</span><br><span class="line">          WHEN comparison_exprn THEN return_exprn</span><br><span class="line">          ELSE else_expr]</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,salary, </span><br><span class="line">(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> salary&lt;<span class="number">5000</span> <span class="keyword">THEN</span> <span class="string">'Low'</span> </span><br><span class="line">      <span class="keyword">WHEN</span> salary&lt;<span class="number">10000</span> <span class="keyword">THEN</span> <span class="string">'Medium'</span> </span><br><span class="line">      <span class="keyword">WHEN</span> salary&lt;<span class="number">20000</span> <span class="keyword">THEN</span> <span class="string">'Good'</span> </span><br><span class="line">      <span class="keyword">ELSE</span> <span class="string">'Excellent'</span> </span><br><span class="line"><span class="keyword">END</span>) qualified_salary </span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+<li><p>NULLIF:如果exp1和exp2相等则返回空(NULL)，否则返回第一个值<br><code>NULLIF (expr1, expr2)</code><br>COALESCE:返回表达式中第一个非空表达式,所有表达式必须是相同类型，或者可以隐性转换为相同的类型。<br><code>COALESCE (expr1, expr2, ..., exprn)</code><br><strong>case Expression</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CASE expr WHEN comparison_expr1 THEN return_expr1</span><br><span class="line">         [WHEN comparison_expr2 THEN return_expr2</span><br><span class="line">          WHEN comparison_exprn THEN return_exprn</span><br><span class="line">          ELSE else_expr]</span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,salary, </span><br><span class="line">(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> salary&lt;<span class="number">5000</span> <span class="keyword">THEN</span> <span class="string">'Low'</span> </span><br><span class="line">      <span class="keyword">WHEN</span> salary&lt;<span class="number">10000</span> <span class="keyword">THEN</span> <span class="string">'Medium'</span> </span><br><span class="line">      <span class="keyword">WHEN</span> salary&lt;<span class="number">20000</span> <span class="keyword">THEN</span> <span class="string">'Good'</span> </span><br><span class="line">      <span class="keyword">ELSE</span> <span class="string">'Excellent'</span> </span><br><span class="line"><span class="keyword">END</span>) qualified_salary </span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>图sql_select_case</p>
-<h5 id="decode-function"><a href="#decode-function" class="headerlink" title="decode function:"></a>decode function:</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">DECODE(col|expression, search1, result1 </span><br><span class="line">      			   [, search2, result2,...,]</span><br><span class="line">      			   [, default])</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name, job_id, salary,</span><br><span class="line">       <span class="keyword">DECODE</span>(job_id, <span class="string">'IT_PROG'</span>,  <span class="number">1.10</span>*salary,</span><br><span class="line">                      <span class="string">'ST_CLERK'</span>, <span class="number">1.15</span>*salary,</span><br><span class="line">                      <span class="string">'SA_REP'</span>,   <span class="number">1.20</span>*salary,</span><br><span class="line">              salary)</span><br><span class="line">       REVISED_SALARY</span><br><span class="line"><span class="keyword">FROM</span>   employees;</span><br></pre></td></tr></table></figure>
-<p>图sql_decode_func</p>
-<h5 id="Character"><a href="#Character" class="headerlink" title="Character:"></a>Character:</h5><p>转换函数：Case-conversion<br>    lower:转成小写字母<br>    upper:转成大写字母<br>    initcap:首字母大写<br>图sql_case_conversion</p>
-<p>计算数值：Character-manipulation<br>concat:连接字符串<br>substr:截取字符串<br>length:计算字符串长度<br>instr:返回该字符所处位置<br>lpad | rpad:<br>trim:<br>replace:替换字符串<br>图：sql_character_manipulation</p>
-<h5 id="Number"><a href="#Number" class="headerlink" title="Number:"></a>Number:</h5><p>round:将值四舍五入到指定的小数位数<br>trunc:将值截断为指定的小时位数<br>ceil:返回大于或等于指定数字的最小整数<br>floor:返回等于或小于指定数字的最大整数<br>mod:返回余数<br>图sql_numberfuncation</p>
-<h5 id="Conversion"><a href="#Conversion" class="headerlink" title="Conversion:"></a>Conversion:</h5><ul>
+<p><img src="https://zhanghuaisheng.github.io/assets/img/sql_select_case.jpg" alt="图sql_select_case"></p>
+<p><strong>decode function</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">DECODE(col|expression, search1, result1 </span><br><span class="line">      			   [, search2, result2,...,]</span><br><span class="line">      			   [, default])</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name, job_id, salary,</span><br><span class="line">       <span class="keyword">DECODE</span>(job_id, <span class="string">'IT_PROG'</span>,  <span class="number">1.10</span>*salary,</span><br><span class="line">                      <span class="string">'ST_CLERK'</span>, <span class="number">1.15</span>*salary,</span><br><span class="line">                      <span class="string">'SA_REP'</span>,   <span class="number">1.20</span>*salary,</span><br><span class="line">              salary)</span><br><span class="line">       REVISED_SALARY</span><br><span class="line"><span class="keyword">FROM</span>   employees;</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://zhanghuaisheng.github.io/assets/img/sql_decode_func.jpg" alt="图sql_decode_func"></p>
+<p><strong>Character</strong></p>
+<ul>
+<li>转换函数：Case-conversion<br>  lower:转成小写字母<br>  upper:转成大写字母<br>  initcap:首字母大写</li>
+</ul>
+<p><img src="https://zhanghuaisheng.github.io/assets/img/sql_case_conversion.jpg" alt="图sql_case_conversion"></p>
+<ul>
+<li>计算数值：Character-manipulation<br>concat:连接字符串<br>substr:截取字符串<br>length:计算字符串长度<br>instr:返回该字符所处位置<br>lpad | rpad:<br>trim:<br>replace:替换字符串</li>
+</ul>
+<p><img src="https://zhanghuaisheng.github.io/assets/img/sql_character_manipulation.jpg" alt="图sql_character_manipulation"></p>
+<p><strong>Number</strong><br>round:将值四舍五入到指定的小数位数<br>trunc:将值截断为指定的小时位数<br>ceil:返回大于或等于指定数字的最小整数<br>floor:返回等于或小于指定数字的最大整数<br>mod:返回余数</p>
+<p><img src="https://zhanghuaisheng.github.io/assets/img/sql_numberfuncation.jpg" alt="图sql_numberfuncation"></p>
+<p><strong>Conversion</strong></p>
+<ul>
 <li>数据类型转化：Data type conversion</li>
 <li><p>隐式转化：Implicit data type conversion<br>From varchar2 or char To number/date<br>From number/date To varchar2 or char</p>
 </li>
 <li><p>显示转化:Explicit data type conversion<br>to_char:<br><code>TO_CHAR(date[,&#39;format_model&#39;])</code><br>2018年11月12日 星期一<br>YYYY:年(4位数) 2018<br>YEAR:年（两位数） 18<br>MM:月两位数 11<br>MONTH:月，全名，Novabemer<br>MON: 三个字母的简写，nov<br>DY: 三个字母的星期简写，mon<br>DAY:全名，monday<br>DD:该月的数字天数<br>HH:小时–&gt; HH24<br>MI：分钟<br>SS: 秒</p>
 </li>
 </ul>
-<p><code>SELECT last_name, TO_CHAR(hire_date, &#39;DD Month YYYY&#39;) AS HIREDATE FROM  employees;</code><br>图sql_tochar_date<br><code>TO_CHAR(number[, &#39;format_model&#39;])</code><br>9：代表数字<br>0：强制显示零<br>$:美元<br>L:使用浮动的当地货币符号<br>.:小数点<br>,:打印逗号作为数千个指示器</p>
-<h5 id="to-date"><a href="#to-date" class="headerlink" title="to_date:"></a>to_date:</h5><p><code>TO_DATE(char[, &#39;format_model&#39;])</code></p>
-<h5 id="to-number"><a href="#to-number" class="headerlink" title="to_number:"></a>to_number:</h5><p><code>TO_NUMBER(char[, &#39;format_model&#39;])</code></p>
-<h5 id="Date"><a href="#Date" class="headerlink" title="Date:"></a>Date:</h5><p>图：date_format<br>系统时间：sysdate</p>
-<p>months_between:两个月之间的时间<br>add_months:加多少月<br>next_day：下一次星期几的日期是多少<br>last_day:月末最后一天<br>round：<br>trunc：<br>图 date_function<br>图 date_function2</p>
-<h4 id="组函数"><a href="#组函数" class="headerlink" title="组函数"></a>组函数</h4>
+<p><code>SELECT last_name, TO_CHAR(hire_date, &#39;DD Month YYYY&#39;) AS HIREDATE FROM  employees;</code><br><img src="https://zhanghuaisheng.github.io/assets/img/sql_tochar_date.jpg" alt="图sql_tochar_date"></p>
+<p><code>TO_CHAR(number[, &#39;format_model&#39;])</code><br>9：代表数字<br>0：强制显示零<br>$:美元<br>L:使用浮动的当地货币符号<br>.:小数点<br>,:打印逗号作为数千个指示器</p>
+<p><strong>to_date</strong><br><code>TO_DATE(char[, &#39;format_model&#39;])</code></p>
+<p><strong>to_number</strong><br><code>TO_NUMBER(char[, &#39;format_model&#39;])</code></p>
+<p><strong>Date</strong><br>图：date_format<br><img src="https://zhanghuaisheng.github.io/assets/img/date_format.jpg" alt="图date_format"><br>系统时间：sysdate</p>
+<p>months_between:两个月之间的时间<br>add_months:加多少月<br>next_day：下一次星期几的日期是多少<br>last_day:月末最后一天<br>round：<br>trunc：</p>
+<p><img src="https://zhanghuaisheng.github.io/assets/img/date_function.jpg" alt="图date_function"></p>
+<p><img src="https://zhanghuaisheng.github.io/assets/img/date_function2.jpg" alt="图date_function2"></p>
+<h5 id="组函数"><a href="#组函数" class="headerlink" title="组函数"></a>组函数</h5>
       
 
       
@@ -405,7 +443,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）sql语法"><span class="toc-number">1.</span> <span class="toc-text">（一）sql语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-DML-数据操作语句"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 DML(数据操作语句)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-select"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1.1 select</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#WHERE-子句"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">WHERE 子句</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ORDER-BY-子句"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">ORDER BY 子句</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#单行函数"><span class="toc-number">1.1.2.</span> <span class="toc-text">单行函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#General"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">General:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#case-Expression"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">case Expression:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#decode-function"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">decode function:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Character"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">Character:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Number"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">Number:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Conversion"><span class="toc-number">1.1.2.6.</span> <span class="toc-text">Conversion:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#to-date"><span class="toc-number">1.1.2.7.</span> <span class="toc-text">to_date:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#to-number"><span class="toc-number">1.1.2.8.</span> <span class="toc-text">to_number:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Date"><span class="toc-number">1.1.2.9.</span> <span class="toc-text">Date:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组函数"><span class="toc-number">1.1.3.</span> <span class="toc-text">组函数</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）sql语法"><span class="toc-number">1.</span> <span class="toc-text">（一）sql语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-DML-数据操作语句"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 DML(数据操作语句)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-select"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1.1 select</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#单行函数"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">单行函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#组函数"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">组函数</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
